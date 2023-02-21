@@ -17,7 +17,7 @@ def load_images():
     pieces = ['wR','bp']
     for piece in pieces:
         IMAGES[piece] = pygame.transform.scale(pygame.image.load(
-            f"pieces/{piece}.png"), (SQ_SIZE, SQ_SIZE))
+            f"pieces_assets/{piece}.png"), (SQ_SIZE, SQ_SIZE))
 
 
 def draw_board(screen):
