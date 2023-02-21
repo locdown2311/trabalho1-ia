@@ -17,8 +17,6 @@ class Peca:
         final_moves = moves[:]
         for move in moves:
             board.make_move(self, move[0], move[1], keep_history=True)
-            if board.king_is_threatened(self.color, move):
-                final_moves.remove(move)
             board.unmake_move(self)
         return final_moves
 
@@ -52,3 +50,4 @@ class Peca:
 
     def __repr__(self):
         return '{}: {}|{},{}'.format(self.type, self.color, self.x, self.y)
+

@@ -1,4 +1,5 @@
 from pieces.peca import Peca
+import operator
 class Gato(Peca):
     def get_moves(self, board):
         moves = []
@@ -35,4 +36,4 @@ class Gato(Peca):
         return moves
 
     def get_score(self):
-        return 30
+        return 13

@@ -21,4 +21,4 @@ class Rato(Peca):
         return moves
 
     def get_score(self):
-        return 10
+        return 2
