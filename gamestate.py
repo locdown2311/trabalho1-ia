@@ -26,7 +26,7 @@ class Board:
         self.whites.clear()
         self.blacks.clear()
         self.initialize_board()
-        self[1][3] = Gato("white", 1, 3, "\u265C")
+        self[1][3] = Gato("white",1,3,"\u265C")
         self[6][0] = Rato("black",6,0,"\u265F")
         self[6][1] = Rato("black",6,1,"\u265F")
         self[6][2] = Rato("black",6,2,"\u265F")
