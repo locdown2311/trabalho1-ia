@@ -38,11 +38,11 @@ def draw_pieces(screen, board):
                     col * SQ_SIZE, row * SQ_SIZE, SQ_SIZE, SQ_SIZE))
 
 
-def highlight_moves(screen, piece, row, col,color):
+def highlight_moves(screen, gs,piece, row, col,color):
     if piece == 'wR':
         moves = gato.get_valid_moves(row, col)
     elif piece == 'bp':
-        moves = rato.get_valid_moves(row, col)
+        moves = rato.get_valid_moves(gs.board,row, col)
     for move in moves:
         pygame.draw.circle(screen, pygame.Color(color), (
             move[1] * SQ_SIZE + SQ_SIZE//2, move[0] * SQ_SIZE + SQ_SIZE//2), SQ_SIZE//4)
@@ -53,7 +53,7 @@ def make_move(gs, piece, start_row, start_col, end_row, end_col):
     if piece == 'wR':
         valid_moves = gato.get_valid_moves(start_row, start_col)
     elif piece == 'bp':
-        valid_moves = rato.get_valid_moves(start_row, start_col)
+        valid_moves = rato.get_valid_moves(gs.board,start_row, start_col)
         print("Movimentos validos do rato: ", valid_moves)
     if (end_row, end_col) not in valid_moves:
         return False
@@ -134,7 +134,7 @@ def main():
                         elif selected_piece[0] == 'bp':
                             futura_pos = (row, col)
                             #Se a posição futura for válida, então o rato pode se mover
-                            if futura_pos in rato.get_valid_moves(selected_piece[1], selected_piece[2]):
+                            if futura_pos in rato.get_valid_moves(gs.board,selected_piece[1], selected_piece[2]):
                                 if make_move(gs, selected_piece[0], selected_piece[1], selected_piece[2], row, col):
                                     gs.white_to_move = not gs.white_to_move
                         else:
@@ -153,7 +153,7 @@ def main():
                 color = 'green'
             else:
                 color = 'red'                
-            highlight_moves(screen, selected_piece[0], selected_piece[1], selected_piece[2],color)
+            highlight_moves(screen,gs, selected_piece[0], selected_piece[1], selected_piece[2],color)
 
         if verifica_vitoria_rato(gs):
             # exibir uma tela verde
