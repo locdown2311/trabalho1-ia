@@ -2,10 +2,11 @@ import pygame
 from pieces.peca import Peca
 from inteligencia import get_ai_move
 
-
-whiteGato = pygame.image.load('pieces_assets/wR.png')
+whiteGato = pygame.image.load('pieces_assets/wR-v2.png')
+#whiteGato = pygame.image.load('pieces_assets/wR.png')
 whiteGato = pygame.transform.scale(whiteGato, (75, 75))
-blackRato = pygame.image.load('pieces_assets/bp.png')
+#blackRato = pygame.image.load('pieces_assets/bp.png')
+blackRato = pygame.image.load('pieces_assets/bp-v2.png')
 blackRato = pygame.transform.scale(blackRato, (75, 75))
 bloco_escuro = pygame.image.load('pieces_assets/marrom_escuro.png')
 bloco_claro = pygame.image.load('pieces_assets/marrom_claro.png')
