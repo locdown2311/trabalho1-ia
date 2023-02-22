@@ -4,7 +4,7 @@ from gamestate import *
 
 if __name__ == '__main__':
     # game_mode == 0: whites down / 1: blacks down
-    board = Board(game_mode=0, ai=True, depth=1, log=True)
+    board = Board(game_mode=0, ai=True, depth=2, log=True)
     
     visual.initialize()
     board.place_pieces()
