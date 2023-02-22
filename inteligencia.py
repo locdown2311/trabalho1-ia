@@ -118,11 +118,12 @@ def minimax_ab(board, depth, alpha, beta, max_player, save_move, data):
     move = piece_and_move[1]
     if isinstance(piece, Peca) and len(move) > 0 and isinstance(move, tuple):
         board.make_move(piece, move[0], move[1])
-    return True """
-
+    return True 
+ """
 
 def get_ai_move(board, max_time=5.0):
-    """
+    
+    """ 
     Retorna o próximo movimento sugerido pela busca minimax com poda alfa-beta com busca imperfeita em tempo real.
 
     Explicação:
@@ -137,7 +138,7 @@ def get_ai_move(board, max_time=5.0):
 
     Returns:
     - bool: Retorna True se foi possível realizar um movimento ou False caso contrário.
-    """
+     """
     start_time = time.time()
     moves = []
     for depth in range(1, board.depth+1):
