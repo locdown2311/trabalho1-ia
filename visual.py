@@ -17,7 +17,7 @@ previsao = pygame.transform.scale(previsao, (75, 75))
 
 screen = None
 pygame.font.init()
-font = pygame.font.SysFont('Arial', 18)
+font = pygame.font.SysFont('Arial', 22)
 
 
 def initialize():
@@ -86,7 +86,7 @@ def draw_text(text):
     s = pygame.Surface((400, 50))
     s.fill((0, 0, 0))
     screen.blit(s, (100, 600))
-    text_surface = font.render(text, False, (237, 237, 237))
+    text_surface = font.render(text, True, (100, 237, 237))
     x = 230
     screen.blit(text_surface, (x, 600))
     pygame.display.update()
