@@ -63,6 +63,7 @@ class Board:
         self.board[old_x][old_y] = 'vazio'
         self.board[x][y].set_position(x, y, keep_history)
 
+        return (old_x, old_y)
 
     def unmake_move(self, piece):
         x = piece.x
