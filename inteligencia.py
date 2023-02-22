@@ -69,7 +69,6 @@ def imperfect_real_time_search(board, max_depth):
     return best_move
 
 
-
 @log_tree
 def minimax_ab(board, depth, alpha, beta, max_player, save_move, data):
     """
@@ -84,7 +83,6 @@ def minimax_ab(board, depth, alpha, beta, max_player, save_move, data):
     :param data: Uma lista que armazena informações relevantes sobre o melhor movimento encontrado.
     :return: Uma lista contendo informações sobre o melhor movimento encontrado.
     """
-
 
     if depth == 0 or board.is_terminal():
         data[1] = board.evaluate()
@@ -158,13 +156,19 @@ def get_ai_move(board, max_time=5.0):
     """
     Retorna o próximo movimento sugerido pela busca minimax com poda alfa-beta com busca imperfeita em tempo real.
 
+    Explicação:
+    A função começa registrando o tempo atual e inicia um loop para iterar através das profundidades de busca a serem consideradas na busca minimax com poda alfa-beta. 
+    Para cada profundidade, a função chama a função minimax_ab com os parâmetros necessários e salva o resultado em move_data. 
+    Em seguida, o tempo decorrido desde o início da função é comparado com o tempo máximo permitido(max_time), e, se esse tempo for ultrapassado, o loop é interrompido.
+    Depois disso, a função verifica se há movimentos possíveis e, se não houver, retorna False. 
+    Se houver, a função seleciona o movimento com o maior score, e se houver empate, escolhe um aleatório entre as opções com o melhor score.
+
     Args:
     - board: instância da classe Board que representa o estado atual do tabuleiro.
 
     Returns:
     - bool: Retorna True se foi possível realizar um movimento ou False caso contrário.
     """
-
     start_time = time.time()
     moves = []
     for depth in range(1, board.depth+1):
@@ -185,10 +189,11 @@ def get_ai_move(board, max_time=5.0):
         [move for move in flattened_moves if move[2] == best_score])
     piece = piece_and_move[0]
     # Exibir a escolha da IA
-    
+
     move = piece_and_move[1]
 
-    print("A IA escolheu a peça", piece, "para a posição", move ,"com um score de", piece_and_move[2])
+    print("A IA escolheu a peça", piece, "para a posição",
+          move, "com um score de", piece_and_move[2])
     print("Tempo gasto na busca:", elapsed_time, "segundos")
     if isinstance(piece, Peca) and len(move) > 0 and isinstance(move, tuple):
         board.make_move(piece, move[0], move[1])
