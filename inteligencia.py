@@ -184,29 +184,12 @@ def get_ai_move(board, max_time=5.0):
     piece_and_move = random.choice(
         [move for move in flattened_moves if move[2] == best_score])
     piece = piece_and_move[0]
+    # Exibir a escolha da IA
+    
     move = piece_and_move[1]
+
+    print("A IA escolheu a peça", piece, "para a posição", move ,"com um score de", piece_and_move[2])
+    print("Tempo gasto na busca:", elapsed_time, "segundos")
     if isinstance(piece, Peca) and len(move) > 0 and isinstance(move, tuple):
         board.make_move(piece, move[0], move[1])
     return True
-
-
-
-def get_random_move(board):
-    pieces = []
-    moves = []
-    for i in range(8):
-        for j in range(8):
-            if isinstance(board[i][j], Peca) and board[i][j].color != board.get_player_color():
-                pieces.append(board[i][j])
-    for piece in pieces[:]:
-        piece_moves = piece.filter_moves(piece.get_moves(board), board)
-        if len(piece_moves) == 0:
-            pieces.remove(piece)
-        else:
-            moves.append(piece_moves)
-    if len(pieces) == 0:
-        return
-    piece = random.choice(pieces)
-    move = random.choice(moves[pieces.index(piece)])
-    if isinstance(piece, Peca) and len(move) > 0:
-        board.make_move(piece, move[0], move[1])
