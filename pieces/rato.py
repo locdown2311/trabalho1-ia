@@ -1,6 +1,9 @@
 from pieces.peca import Peca
 
 class Rato(Peca):
+    def __init__(self, color, x, y, unicode):
+        super().__init__(color, x, y, unicode)
+        self.moved = True
     def get_moves(self, board):
         moves = []
         if board.game_mode == 0 and self.color == 'white' or board.game_mode == 1 and self.color == 'black':
@@ -21,4 +24,4 @@ class Rato(Peca):
         return moves
 
     def get_score(self):
-        return 2
+        return 3
