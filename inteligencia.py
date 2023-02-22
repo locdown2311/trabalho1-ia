@@ -37,37 +37,6 @@ def write_to_file(board: Board, current_depth):
     logger.append(board_repr)
 
 
-def imperfect_real_time_search(board, max_depth):
-    """
-    Executa uma busca imperfeita em tempo real baseada no algoritmo Minimax com poda Alpha-Beta, que interrompe a busca
-    após uma profundidade máxima predefinida e retorna a melhor jogada encontrada até então.
-
-    :param board: O objeto Board que representa o estado atual do tabuleiro.
-    :param max_depth: A profundidade máxima permitida para a busca.
-    :return: A melhor jogada encontrada.
-    """
-
-    best_move = None
-    for depth in range(1, max_depth + 1):
-        # Inicia o algoritmo Minimax com poda Alpha-Beta
-        data = [None, -float('inf')]
-        minimax_ab(board, depth, -float('inf'),
-                   float('inf'), True, False, data)
-
-        # Se a busca foi interrompida, retorna a melhor jogada encontrada até então
-        if data[0] is None:
-            return best_move
-
-        # Salva a melhor jogada encontrada
-        best_move = data[0]
-
-        # Se a jogada atual é uma jogada vencedora, retorna imediatamente
-        if best_move[2] == float('inf'):
-            return best_move
-
-    # Se nenhuma jogada vencedora foi encontrada, retorna a melhor jogada encontrada até a profundidade máxima permitida
-    return best_move
-
 
 @log_tree
 def minimax_ab(board, depth, alpha, beta, max_player, save_move, data):
