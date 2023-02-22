@@ -36,4 +36,4 @@ class Gato(Peca):
         return moves
 
     def get_score(self):
-        return 13
+        return 5
