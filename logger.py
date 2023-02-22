@@ -33,7 +33,7 @@ class BoardRepr:
 
 
 class Logger(metaclass=Singleton):
-    log_file = 'minimax_tree.txt'
+    log_file = 'busca-minimax.txt'
 
     def __init__(self):
         self.arr = []
