@@ -183,6 +183,7 @@ class Board:
     def __repr__(self):
         return 'Board'
 
+    # Apenas no log
     def unicode_array_repr(self):
         data = deepcopy(self.board)
         for idx, row in enumerate(self.board):

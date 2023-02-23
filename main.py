@@ -3,7 +3,7 @@ from gamestate import *
 
 
 if __name__ == '__main__':
-    # game_mode == 0: whites down / 1: blacks down
+    # game_mode == 0: Brancas na parte inferior / 1: Pretas na parte inferior
     board = Board(game_mode=0, ai=True, depth=5, log=True)
     
     visual.initialize()

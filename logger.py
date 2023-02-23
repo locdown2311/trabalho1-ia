@@ -1,5 +1,9 @@
 from itertools import groupby
 
+"""
+Classe utilizada para escrita em arquivos e posteriormente processar os dados
+de forma semelhante ao utilizado em algoritmo de busca
+"""
 
 class Singleton(type):
     _instances = {}

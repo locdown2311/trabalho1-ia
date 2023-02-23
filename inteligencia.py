@@ -105,6 +105,9 @@ def minimax_ab(board, depth, alpha, beta, max_player, save_move, data):
 
 """ def get_ai_move(board):
     
+    A expressão [move for move in moves[0] if move[2] == best_score] usa uma compreensão de lista para criar uma lista com todos os movimentos em moves[0] que têm a pontuação best_score.
+    A função random.choice é usada para escolher aleatoriamente um movimento dessa lista e armazená-lo na variável piece_and_move.
+
     moves = minimax_ab(board, board.depth, -math.inf, math.inf, True, True, [[], 0])
     if board.log:
         logger.write()
