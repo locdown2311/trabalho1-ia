@@ -14,6 +14,17 @@ class Peca:
         self.unicode = unicode
 
     def filter_moves(self, moves, board):
+        """
+        Retorna uma lista filtrada de movimentos válidos para o jogador representado por este objeto.
+
+        Args:
+            moves (list): uma lista de tuplas que representam os movimentos possíveis no tabuleiro, 
+                onde cada tupla tem a forma (linha_inicial, coluna_inicial, linha_final, coluna_final).
+            board (objeto Board): o objeto de tabuleiro que representa o estado atual do jogo.
+
+        Returns:
+            list: uma lista filtrada contendo apenas os movimentos da lista de entrada que não deixam o jogador em xeque.
+        """
         final_moves = moves[:]
         for move in moves:
             board.make_move(self, move[0], move[1], keep_history=True)

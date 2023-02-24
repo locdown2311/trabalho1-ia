@@ -5,6 +5,16 @@ class Rato(Peca):
         super().__init__(color, x, y, unicode)
         self.moved = True
     def get_moves(self, board):
+        """
+        Retorna uma lista de movimentos possíveis para o rato.
+
+        Args:
+            board (objeto Board): o objeto de tabuleiro que representa o estado atual do jogo.
+
+        Returns:
+            list: uma lista de tuplas que representam os movimentos possíveis no tabuleiro, 
+                onde cada tupla tem a forma (linha_final, coluna_final).
+        """
         moves = []
         if board.game_mode == 0 and self.color == 'white' or board.game_mode == 1 and self.color == 'black':
             direction = 1

@@ -47,8 +47,23 @@ class Board:
                     else:
                         self.blacks.append(self[i][j])
 
-    # history is logged when ai searches for moves
     def make_move(self, piece, x, y, keep_history=False):
+        """
+        Move a peça para a posição especificada no tabuleiro.
+        
+        Args:
+            piece (Peca): A peça a ser movida.
+            x (int): A coordenada x (linha) da nova posição.
+            y (int): A coordenada y (coluna) da nova posição.
+            keep_history (bool): Indica se o histórico de movimentos deve ser mantido. 
+                O valor padrão é False.
+
+        Returns:
+            tuple: Uma tupla contendo as coordenadas da posição original da peça.
+
+        Raises:
+            ValueError: Se a posição de destino for inválida.
+        """
         old_x = piece.x
         old_y = piece.y
         if keep_history:
@@ -163,6 +178,14 @@ class Board:
         return False
 
     def evaluate(self):
+        """
+        Avalia a pontuação relativa das peças no tabuleiro.
+
+        Returns:
+            int: a diferença entre a pontuação total das peças pretas e brancas, 
+                onde um número positivo significa uma vantagem para as peças brancas e 
+                um número negativo significa uma vantagem para as peças pretas.
+        """
         white_points = 0
         black_points = 0
         for i in range(8):
